@@ -24,7 +24,6 @@ public class IdentityRelationshipDbContext :
     IIdentityDbContext,
     ITenantManagementDbContext
 {
-    DbSet<Department> Departments;
 
     #region Entities from the modules
 
@@ -50,6 +49,8 @@ public class IdentityRelationshipDbContext :
     // Tenant Management
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
+    
+    public DbSet<Department> Departments { get; set; }
 
     #endregion
 

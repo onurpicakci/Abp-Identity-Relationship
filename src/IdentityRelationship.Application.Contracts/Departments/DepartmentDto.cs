@@ -1,5 +1,4 @@
 using System;
-
 namespace IdentityRelationship.Departments;
 
 public class DepartmentDto

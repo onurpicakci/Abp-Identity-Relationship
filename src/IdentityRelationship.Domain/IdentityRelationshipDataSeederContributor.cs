@@ -10,32 +10,32 @@ namespace IdentityRelationship;
 public class IdentityRelationshipDataSeederContributor
     : IDataSeedContributor, ITransientDependency
 {
-
     private readonly IRepository<Department, Guid> _departmentRepository;
 
     public IdentityRelationshipDataSeederContributor(IRepository<Department, Guid> departmentRepository)
     {
         _departmentRepository = departmentRepository;
     }
+
     public async Task SeedAsync(DataSeedContext context)
     {
         if (await _departmentRepository.GetCountAsync() <= 0)
         {
-           await _departmentRepository.InsertAsync(
+            await _departmentRepository.InsertAsync(
                 new Department
                 {
                     Name = "Human Resources"
                 },
                 autoSave: true
             );
-           
-           await _departmentRepository.InsertAsync(
-               new Department
-               {
-                   Name = "Production"
-               },
-               autoSave: true
-           );
+
+            await _departmentRepository.InsertAsync(
+                new Department
+                {
+                    Name = "Production"
+                },
+                autoSave: true
+            );
         }
     }
 }

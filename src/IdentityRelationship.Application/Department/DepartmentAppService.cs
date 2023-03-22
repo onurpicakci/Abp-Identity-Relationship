@@ -16,11 +16,10 @@ public class DepartmentAppService : IdentityRelationshipAppService, IDepartmentA
         _departmentRepository = departmentRepository;
     }
 
-    public async Task<PagedResultDto<DepartmentDto>> GetAsync()
+    public async Task<ListResultDto<DepartmentDto>> GetAsync()
     {
         var departments = await _departmentRepository.GetListAsync();
-        var totalCount = await _departmentRepository.GetCountAsync();
-        return new PagedResultDto<DepartmentDto>(totalCount,
+        return new ListResultDto<DepartmentDto>(
             ObjectMapper.Map<List<Departments.Department>, List<DepartmentDto>>(departments));
     }
 }

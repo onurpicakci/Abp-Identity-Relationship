@@ -1,0 +1,1 @@
+#### This project is a sample project of the article I wrote to show and explain Identity relationships. You can take a look at my [article](https://onurpicakci.github.io/Identity-User-relationship/).
